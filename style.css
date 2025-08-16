@@ -2298,6 +2298,11 @@ textarea:focus {
   font-weight: 600;
 }
 
+/* Ensure modal content text is visible */
+.modal-content {
+  color: #000000;
+}
+
 .close {
   color: #666666;
   font-size: 2rem;
@@ -2334,8 +2339,19 @@ textarea:focus {
   display: block;
   margin-bottom: 0.5rem;
   color: #000000;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.9rem;
+}
+
+/* Ensure all text in the form is visible */
+.application-form {
+  color: #000000;
+}
+
+.application-form h3,
+.application-form h4,
+.application-form p {
+  color: #000000;
 }
 
 .application-form input,
@@ -2348,6 +2364,13 @@ textarea:focus {
   transition: all 0.3s ease;
   background: #ffffff;
   color: #000000;
+}
+
+/* Ensure placeholder text is visible */
+.application-form input::placeholder,
+.application-form textarea::placeholder {
+  color: #666666;
+  opacity: 1;
 }
 
 .application-form input:focus,
