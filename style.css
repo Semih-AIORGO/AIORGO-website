@@ -2289,17 +2289,31 @@ textarea:focus {
   align-items: center;
   padding: 2rem 2rem 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  position: relative;
+  z-index: 1;
 }
 
 .modal-header h3 {
-  color: #000000;
+  color: #000000 !important;
   margin: 0;
   font-size: 1.5rem;
   font-weight: 600;
+  display: block;
+  visibility: visible;
 }
 
 /* Ensure modal content text is visible */
 .modal-content {
+  color: #000000;
+}
+
+/* Force modal header text to be visible */
+.modal-header {
+  color: #000000;
+}
+
+.modal-header * {
   color: #000000;
 }
 
