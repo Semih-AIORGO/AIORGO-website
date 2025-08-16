@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "AIORGO - Professional Mobile App Development Company Website",
   "main": "index.html",
-  "type": "static-site",
   "scripts": {
     "dev": "python -m http.server 8000",
     "build": "echo 'Static site - no build required'",
