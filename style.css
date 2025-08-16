@@ -2022,6 +2022,18 @@ textarea:focus {
   color: white;
 }
 
+/* Fix value card titles to be visible on light background */
+.value-card h3 {
+  color: #000000;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.value-card p {
+  color: #333333;
+  line-height: 1.6;
+}
+
 /* Team Section */
 .team-section {
   padding: 80px 0;
