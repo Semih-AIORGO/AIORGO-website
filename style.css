@@ -2246,6 +2246,155 @@ textarea:focus {
   background: rgba(255, 255, 255, 0.02);
 }
 
+/* Application Form Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.modal-content {
+  background: var(--background-white);
+  margin: 2% auto;
+  padding: 0;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-header h3 {
+  color: #000000;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.close {
+  color: #666666;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #000000;
+}
+
+.application-form {
+  padding: 2rem;
+}
+
+.application-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.application-form .form-group {
+  margin-bottom: 2rem;
+}
+
+.application-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #000000;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.application-form input,
+.application-form textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #ffffff;
+  color: #000000;
+}
+
+.application-form input:focus,
+.application-form textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
+}
+
+.application-form input[type="file"] {
+  padding: 8px;
+  border: 2px dashed #e0e0e0;
+  background: #f8f9fa;
+}
+
+.application-form input[type="file"]:focus {
+  border-color: var(--accent-color);
+  background: #f0f8f0;
+}
+
+.application-form small {
+  display: block;
+  margin-top: 0.25rem;
+  color: #666666;
+  font-size: 0.8rem;
+}
+
+.application-form .checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  color: #333333;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.application-form .checkbox-label input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  margin-top: 0.2rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e0e0e0;
+}
+
 /* Contact Form Styles */
 .contact-form {
   background: transparent;
@@ -2539,5 +2688,33 @@ textarea:focus {
   .story-logo {
     width: 250px;
     height: 250px;
+  }
+
+  /* Mobile responsive for application form */
+  .modal-content {
+    width: 95%;
+    margin: 5% auto;
+  }
+
+  .application-form .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .application-form {
+    padding: 1.5rem;
+  }
+
+  .modal-header {
+    padding: 1.5rem 1.5rem 1rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-actions .btn {
+    width: 100%;
   }
 }
