@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AIORGO Portfolio - Showcasing our mobile app development projects and success stories.">
+  <title>Portfolio - AIORGO</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="assets/logo.png" alt="AIORGO Logo" class="logo-image">
+        </a>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a href="services.html" class="nav-link">Services</a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a href="portfolio.html" class="nav-link active">Portfolio</a>
+        </li> -->
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a href="career.html" class="nav-link">Careers</a>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Our Portfolio</h1>
+      <p>Showcasing our latest mobile applications and success stories</p>
+    </div>
+  </section>
+
+  <!-- Portfolio Filter -->
+  <section class="portfolio-filter">
+    <div class="container">
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="ios">iOS Apps</button>
+        <button class="filter-btn" data-filter="android">Android Apps</button>
+        <button class="filter-btn" data-filter="cross-platform">Cross-Platform</button>
+        <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+        <button class="filter-btn" data-filter="health">Health & Fitness</button>
+        <button class="filter-btn" data-filter="social">Social</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Grid -->
+  <section class="portfolio-page">
+    <div class="container">
+      <div class="portfolio-grid">
+        <!-- E-Commerce App -->
+        <div class="portfolio-item" data-category="ios android ecommerce">
+          <div class="portfolio-image">
+            <div class="app-mockup">
+              <div class="app-screen ecommerce-app"></div>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>ShopSmart - E-Commerce App</h3>
+            <p>A comprehensive shopping platform with advanced features including product search, shopping cart, payment integration, and order tracking.</p>
+            <div class="portfolio-details">
+              <div class="portfolio-tags">
+                <span class="tag">iOS</span>
+                <span class="tag">Android</span>
+                <span class="tag">E-Commerce</span>
+              </div>
+              <div class="portfolio-stats">
+                <span><i class="fas fa-download"></i> 50K+ Downloads</span>
+                <span><i class="fas fa-star"></i> 4.8 Rating</span>
+              </div>
+            </div>
+            <div class="portfolio-features">
+              <h4>Key Features:</h4>
+              <ul>
+                <li>Product catalog with search & filters</li>
+                <li>Shopping cart & wishlist</li>
+                <li>Secure payment integration</li>
+                <li>Order tracking & notifications</li>
+                <li>User reviews & ratings</li>
+              </ul>
+            </div>
+            <a href="#" class="btn btn-outline">View Case Study</a>
+          </div>
+        </div>
+
+        <!-- Fitness Tracker -->
+        <div class="portfolio-item" data-category="ios android health">
+          <div class="portfolio-image">
+            <div class="app-mockup">
+              <div class="app-screen fitness-app"></div>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>FitLife - Fitness Tracker</h3>
+            <p>Health and fitness application with real-time tracking, personalized workout plans, nutrition guidance, and social features.</p>
+            <div class="portfolio-details">
+              <div class="portfolio-tags">
+                <span class="tag">iOS</span>
+                <span class="tag">Android</span>
+                <span class="tag">Health</span>
+              </div>
+              <div class="portfolio-stats">
+                <span><i class="fas fa-download"></i> 100K+ Downloads</span>
+                <span><i class="fas fa-star"></i> 4.9 Rating</span>
+              </div>
+            </div>
+            <div class="portfolio-features">
+              <h4>Key Features:</h4>
+              <ul>
+                <li>Activity tracking & step counting</li>
+                <li>Personalized workout plans</li>
+                <li>Nutrition tracking & meal planning</li>
+                <li>Progress analytics & charts</li>
+                <li>Social features & challenges</li>
+              </ul>
+            </div>
+            <a href="#" class="btn btn-outline">View Case Study</a>
+          </div>
+        </div>
+
+        <!-- Social Platform -->
+        <div class="portfolio-item" data-category="android social">
+          <div class="portfolio-image">
+            <div class="app-mockup">
+              <div class="app-screen social-app"></div>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>ConnectHub - Social Platform</h3>
+            <p>Community-driven social networking app with real-time messaging, content sharing, and group features.</p>
+            <div class="portfolio-details">
+              <div class="portfolio-tags">
+                <span class="tag">Android</span>
+                <span class="tag">Social</span>
+                <span class="tag">Messaging</span>
+              </div>
+              <div class="portfolio-stats">
+                <span><i class="fas fa-download"></i> 200K+ Downloads</span>
+                <span><i class="fas fa-star"></i> 4.7 Rating</span>
+              </div>
+            </div>
+            <div class="portfolio-features">
+              <h4>Key Features:</h4>
+              <ul>
+                <li>Real-time messaging & video calls</li>
+                <li>Photo & video sharing</li>
+                <li>Group creation & management</li>
+                <li>Content discovery & recommendations</li>
+                <li>Privacy controls & moderation</li>
+              </ul>
+            </div>
+            <a href="#" class="btn btn-outline">View Case Study</a>
+          </div>
+        </div>
+
+        <!-- Food Delivery App -->
+        <div class="portfolio-item" data-category="cross-platform ecommerce">
+          <div class="portfolio-image">
+            <div class="app-mockup">
+              <div class="app-screen food-app"></div>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>FoodExpress - Delivery App</h3>
+            <p>Cross-platform food delivery application connecting restaurants with customers for seamless ordering and delivery.</p>
+            <div class="portfolio-details">
+              <div class="portfolio-tags">
+                <span class="tag">Cross-Platform</span>
+                <span class="tag">React Native</span>
+                <span class="tag">Delivery</span>
+              </div>
+              <div class="portfolio-stats">
+                <span><i class="fas fa-download"></i> 150K+ Downloads</span>
+                <span><i class="fas fa-star"></i> 4.6 Rating</span>
+              </div>
+            </div>
+            <div class="portfolio-features">
+              <h4>Key Features:</h4>
+              <ul>
+                <li>Restaurant discovery & menus</li>
+                <li>Real-time order tracking</li>
+                <li>Multiple payment options</li>
+                <li>Driver tracking & ETA</li>
+                <li>Reviews & ratings system</li>
+              </ul>
+            </div>
+            <a href="#" class="btn btn-outline">View Case Study</a>
+          </div>
+        </div>
+
+        <!-- Banking App -->
+        <div class="portfolio-item" data-category="ios android">
+          <div class="portfolio-image">
+            <div class="app-mockup">
+              <div class="app-screen banking-app"></div>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>SecureBank - Mobile Banking</h3>
+            <p>Secure mobile banking application with advanced security features, transaction management, and financial planning tools.</p>
+            <div class="portfolio-details">
+              <div class="portfolio-tags">
+                <span class="tag">iOS</span>
+                <span class="tag">Android</span>
+                <span class="tag">Banking</span>
+              </div>
+              <div class="portfolio-stats">
+                <span><i class="fas fa-download"></i> 75K+ Downloads</span>
+                <span><i class="fas fa-star"></i> 4.8 Rating</span>
+              </div>
+            </div>
+            <div class="portfolio-features">
+              <h4>Key Features:</h4>
+              <ul>
+                <li>Secure login & biometric authentication</li>
+                <li>Account management & transfers</li>
+                <li>Transaction history & analytics</li>
+                <li>Bill payments & scheduling</li>
+                <li>Investment tracking & planning</li>
+              </ul>
+            </div>
+            <a href="#" class="btn btn-outline">View Case Study</a>
+          </div>
+        </div>
+
+        <!-- Education App -->
+        <div class="portfolio-item" data-category="cross-platform">
+          <div class="portfolio-image">
+            <div class="app-mockup">
+              <div class="app-screen education-app"></div>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>LearnPro - Educational Platform</h3>
+            <p>Cross-platform educational app offering interactive courses, quizzes, and progress tracking for various subjects.</p>
+            <div class="portfolio-details">
+              <div class="portfolio-tags">
+                <span class="tag">Cross-Platform</span>
+                <span class="tag">Flutter</span>
+                <span class="tag">Education</span>
+              </div>
+              <div class="portfolio-stats">
+                <span><i class="fas fa-download"></i> 300K+ Downloads</span>
+                <span><i class="fas fa-star"></i> 4.9 Rating</span>
+              </div>
+            </div>
+            <div class="portfolio-features">
+              <h4>Key Features:</h4>
+              <ul>
+                <li>Interactive video lessons</li>
+                <li>Progress tracking & analytics</li>
+                <li>Quiz & assessment system</li>
+                <li>Offline content download</li>
+                <li>Certificate generation</li>
+              </ul>
+            </div>
+            <a href="#" class="btn btn-outline">View Case Study</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Our Clients Say</h2>
+        <p>Hear from the businesses we've helped transform with mobile apps</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"AIORGO delivered an exceptional e-commerce app that exceeded our expectations. The team's expertise in iOS and Android development is outstanding."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Sarah Johnson</h4>
+              <p>CEO, ShopSmart</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"The fitness app they built for us has been a game-changer. The user experience is intuitive and the performance is outstanding across all devices."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Mike Chen</h4>
+              <p>Founder, FitLife</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"Working with AIORGO was a pleasure. They understood our vision perfectly and delivered a social platform that our users love."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Emily Rodriguez</h4>
+              <p>CTO, ConnectHub</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Create Your App?</h2>
+        <p>Let's discuss your project and bring your mobile app idea to life</p>
+        <a href="career.html" class="btn btn-primary">Join Our Team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/logo.png" alt="AIORGO Logo" class="logo-image">
+          </div>
+          <p>Professional mobile app development company specializing in iOS and Android applications.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <!-- <li><a href="services.html">Services</a></li> -->
+            <!-- <li><a href="portfolio.html">Portfolio</a></li> -->
+            <li><a href="about.html">About</a></li>
+            <li><a href="career.html">Career</a></li>
+          </ul>
+        </div>
+        <!-- <div class="footer-section">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="services.html#ios">iOS Development</a></li>
+            <li><a href="services.html#android">Android Development</a></li>
+            <li><a href="services.html#cross-platform">Cross-Platform</a></li>
+            <li><a href="services.html#maintenance">App Maintenance</a></li>
+          </ul>
+        </div> -->
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> semih@aiorgo.com</p>
+            <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+            <p><i class="fas fa-map-marker-alt"></i> San Francisco, CA</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 AIORGO. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
