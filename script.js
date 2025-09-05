@@ -78,6 +78,7 @@ function initMobileNavigation() {
         
         hamburger.onclick = function() {
             console.log('Hamburger clicked!');
+            alert('Hamburger menu clicked!'); // Test alert
             console.log('Current nav menu classes:', navMenu.className);
             
             if (navMenu.classList.contains('active')) {
