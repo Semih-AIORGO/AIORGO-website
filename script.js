@@ -65,92 +65,22 @@ function updateThemeIcon() {
 
 // Simple Mobile Navigation
 function initMobileNavigation() {
-    console.log('Initializing simple mobile navigation...');
-    
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     
-    console.log('Hamburger found:', !!hamburger);
-    console.log('Nav menu found:', !!navMenu);
-    
     if (hamburger && navMenu) {
-        console.log('Adding click event to hamburger');
-        
-        // Click event
+        // Simple click toggle
         hamburger.onclick = function() {
-            console.log('Hamburger button clicked!');
-            console.log('Current nav menu classes:', navMenu.className);
-            console.log('Nav menu computed style left:', window.getComputedStyle(navMenu).left);
-            console.log('Nav menu display:', window.getComputedStyle(navMenu).display);
-            console.log('Nav menu position:', window.getComputedStyle(navMenu).position);
-            
-            if (navMenu.classList.contains('active')) {
-                console.log('Closing menu');
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-            } else {
-                console.log('Opening menu');
-                navMenu.classList.add('active');
-                hamburger.classList.add('active');
-            }
-            
-            console.log('New nav menu classes:', navMenu.className);
-            console.log('New nav menu computed style left:', window.getComputedStyle(navMenu).left);
-        };
-        
-        // Keyboard event for accessibility
-        hamburger.onkeydown = function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                hamburger.onclick();
-            }
+            navMenu.classList.toggle('active');
         };
         
         // Close menu when clicking nav links
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             link.onclick = function() {
-                console.log('Nav link clicked, closing menu');
                 navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
             };
         });
-        
-        console.log('Mobile navigation initialized successfully');
-        
-        // Add a test button to force menu open (for debugging)
-        const testButton = document.createElement('button');
-        testButton.textContent = 'TEST: Force Menu Open';
-        testButton.style.cssText = 'position: fixed; top: 100px; right: 10px; z-index: 9999; background: red; color: white; padding: 10px;';
-        testButton.onclick = function() {
-            console.log('TEST: Forcing menu to open');
-            navMenu.classList.add('active');
-            hamburger.classList.add('active');
-            navMenu.style.left = '0px';
-            navMenu.style.display = 'flex';
-            navMenu.style.visibility = 'visible';
-            navMenu.style.opacity = '1';
-        };
-        document.body.appendChild(testButton);
-        
-        // Test if hamburger is visible
-        setTimeout(() => {
-            const hamburgerRect = hamburger.getBoundingClientRect();
-            console.log('Hamburger position:', hamburgerRect);
-            console.log('Hamburger visible:', hamburgerRect.width > 0 && hamburgerRect.height > 0);
-            
-            // Test menu visibility
-            console.log('Nav menu initial state:');
-            console.log('- Classes:', navMenu.className);
-            console.log('- Display:', window.getComputedStyle(navMenu).display);
-            console.log('- Position:', window.getComputedStyle(navMenu).position);
-            console.log('- Left:', window.getComputedStyle(navMenu).left);
-            console.log('- Width:', window.getComputedStyle(navMenu).width);
-            console.log('- Height:', window.getComputedStyle(navMenu).height);
-        }, 1000);
-        
-    } else {
-        console.error('Could not find hamburger or nav menu elements');
     }
 }
 
