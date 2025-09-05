@@ -937,6 +937,15 @@ p {
     justify-content: center;
     order: 2;
     margin-left: auto;
+    /* Button-specific styles */
+    outline: none;
+    box-shadow: none;
+  }
+  
+  /* Remove default button styles */
+  .hamburger:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
   }
   
   /* Ensure hamburger bars are visible */

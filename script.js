@@ -76,9 +76,9 @@ function initMobileNavigation() {
     if (hamburger && navMenu) {
         console.log('Adding click event to hamburger');
         
+        // Click event
         hamburger.onclick = function() {
-            console.log('Hamburger clicked!');
-            alert('Hamburger menu clicked!'); // Test alert
+            console.log('Hamburger button clicked!');
             console.log('Current nav menu classes:', navMenu.className);
             
             if (navMenu.classList.contains('active')) {
@@ -92,6 +92,14 @@ function initMobileNavigation() {
             }
             
             console.log('New nav menu classes:', navMenu.className);
+        };
+        
+        // Keyboard event for accessibility
+        hamburger.onkeydown = function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                hamburger.onclick();
+            }
         };
         
         // Close menu when clicking nav links
