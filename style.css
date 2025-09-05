@@ -979,6 +979,9 @@ p {
 
   .nav-menu.active {
     left: 0 !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
   
   .nav-item {
