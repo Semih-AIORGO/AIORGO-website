@@ -65,6 +65,8 @@ function updateThemeIcon() {
 
 // Simple Mobile Navigation
 function initMobileNavigation() {
+    console.log('initMobileNavigation called');
+    
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     
@@ -72,9 +74,19 @@ function initMobileNavigation() {
     console.log('Nav menu found:', !!navMenu);
     
     if (hamburger && navMenu) {
-        // Simple click toggle
-        hamburger.onclick = function() {
+        console.log('Adding click event to hamburger');
+        
+        // Try multiple ways to attach the event
+        hamburger.addEventListener('click', function() {
             alert('Hamburger clicked!'); // Test alert
+            console.log('Menu classes before:', navMenu.className);
+            navMenu.classList.toggle('active');
+            console.log('Menu classes after:', navMenu.className);
+        });
+        
+        // Also try onclick as backup
+        hamburger.onclick = function() {
+            alert('Hamburger clicked via onclick!'); // Test alert
             console.log('Menu classes before:', navMenu.className);
             navMenu.classList.toggle('active');
             console.log('Menu classes after:', navMenu.className);
@@ -88,18 +100,7 @@ function initMobileNavigation() {
             };
         });
         
-        // Test: Force menu to be visible after 2 seconds
-        setTimeout(() => {
-            console.log('TEST: Forcing menu to be visible');
-            navMenu.style.display = 'block';
-            navMenu.style.background = 'red';
-            navMenu.style.position = 'fixed';
-            navMenu.style.top = '100px';
-            navMenu.style.right = '10px';
-            navMenu.style.width = '200px';
-            navMenu.style.height = '200px';
-            navMenu.style.zIndex = '9999';
-        }, 2000);
+        console.log('Mobile navigation initialized successfully');
         
     } else {
         console.error('Could not find hamburger or nav menu');
@@ -642,3 +643,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 console.log("AIORGO website JavaScript initialized successfully!");
+
+// Test if mobile navigation is working
+setTimeout(() => {
+    console.log('Testing mobile navigation...');
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    console.log('Hamburger found:', !!hamburger);
+    console.log('Nav menu found:', !!navMenu);
+    
+    if (hamburger) {
+        console.log('Adding test click event...');
+        hamburger.addEventListener('click', function() {
+            alert('TEST: Hamburger clicked!');
+        });
+    }
+}, 1000);
