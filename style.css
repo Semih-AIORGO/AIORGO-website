@@ -866,12 +866,14 @@ p {
   .nav-container {
     padding: 0 15px;
     justify-content: space-between;
+    align-items: center;
   }
   
   /* Only change positioning on mobile */
   .nav-logo {
-    margin-left: 0;
+    margin-left: -20px;
     margin-top: 0;
+    order: 1;
   }
   
   .nav-menu {
@@ -890,30 +892,40 @@ p {
     margin-left: 0;
   }
   
-  /* Ensure hamburger menu is visible and clickable */
+  /* Ensure hamburger menu is visible and clickable in right corner */
   .hamburger {
     display: flex !important;
     z-index: 1001;
     position: relative;
-    padding: 12px;
-    background: transparent;
-    border: none;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
     cursor: pointer;
-    min-width: 44px;
-    min-height: 44px;
+    min-width: 50px;
+    min-height: 50px;
     align-items: center;
     justify-content: center;
+    order: 2;
+    margin-left: auto;
   }
   
   /* Ensure hamburger bars are visible */
   .hamburger .bar {
     background: #ffffff !important;
-    width: 25px;
+    width: 28px;
     height: 3px;
     margin: 4px 0;
     border-radius: 2px;
     transition: all 0.3s ease;
     display: block;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Add hover effect for better visibility */
+  .hamburger:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: scale(1.05);
   }
 
   .nav-menu.active {
@@ -1146,11 +1158,11 @@ p {
     font-size: 0.9rem;
   }
   
-  /* Increase logo size on mobile */
+  /* Increase logo size on mobile and position it more to the left */
   .nav-logo img {
-    width: 180px;
-    height: 48px;
-    margin-left: 0;
+    width: 220px;
+    height: 60px;
+    margin-left: -10px;
     margin-top: 0;
   }
 }

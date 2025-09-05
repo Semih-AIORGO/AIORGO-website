@@ -82,6 +82,12 @@ function initMobileNavigation() {
             e.stopPropagation();
             console.log('Hamburger clicked/touched!');
             
+            // Add visual feedback
+            hamburger.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                hamburger.style.transform = 'scale(1)';
+            }, 150);
+            
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
             
@@ -89,8 +95,12 @@ function initMobileNavigation() {
             console.log('Nav menu active:', navMenu.classList.contains('active'));
         }
         
+        // Add multiple event listeners for better compatibility
         hamburger.addEventListener('click', toggleMenu);
         hamburger.addEventListener('touchstart', toggleMenu);
+        hamburger.addEventListener('touchend', function(e) {
+            e.preventDefault();
+        });
 
         // Close mobile menu when clicking on a link
         navLinks.forEach(link => {
