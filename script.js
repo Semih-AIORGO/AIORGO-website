@@ -76,21 +76,12 @@ function initMobileNavigation() {
     if (hamburger && navMenu) {
         console.log('Adding click event to hamburger');
         
-        // Try multiple ways to attach the event
+        // Click event to toggle menu
         hamburger.addEventListener('click', function() {
-            alert('Hamburger clicked!'); // Test alert
             console.log('Menu classes before:', navMenu.className);
             navMenu.classList.toggle('active');
             console.log('Menu classes after:', navMenu.className);
         });
-        
-        // Also try onclick as backup
-        hamburger.onclick = function() {
-            alert('Hamburger clicked via onclick!'); // Test alert
-            console.log('Menu classes before:', navMenu.className);
-            navMenu.classList.toggle('active');
-            console.log('Menu classes after:', navMenu.className);
-        };
         
         // Close menu when clicking nav links
         const navLinks = document.querySelectorAll('.nav-link');
@@ -644,18 +635,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 console.log("AIORGO website JavaScript initialized successfully!");
 
-// Test if mobile navigation is working
-setTimeout(() => {
-    console.log('Testing mobile navigation...');
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    console.log('Hamburger found:', !!hamburger);
-    console.log('Nav menu found:', !!navMenu);
-    
-    if (hamburger) {
-        console.log('Adding test click event...');
-        hamburger.addEventListener('click', function() {
-            alert('TEST: Hamburger clicked!');
-        });
-    }
-}, 1000);

@@ -910,8 +910,8 @@ p {
     flex-direction: column;
     cursor: pointer;
     padding: 10px;
-    background: rgba(255, 0, 0, 0.5) !important; /* Red background to see it */
-    border: 2px solid #ffffff !important;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 5px;
     z-index: 1001;
     position: relative;
