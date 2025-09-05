@@ -69,11 +69,28 @@ function initMobileNavigation() {
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
+    console.log('Initializing mobile navigation...');
+    console.log('Hamburger element:', hamburger);
+    console.log('Nav menu element:', navMenu);
+
     if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
+        console.log('Adding click event to hamburger menu');
+        
+        // Add both click and touchstart events for better mobile support
+        function toggleMenu(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Hamburger clicked/touched!');
+            
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
-        });
+            
+            console.log('Hamburger active:', hamburger.classList.contains('active'));
+            console.log('Nav menu active:', navMenu.classList.contains('active'));
+        }
+        
+        hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener('touchstart', toggleMenu);
 
         // Close mobile menu when clicking on a link
         navLinks.forEach(link => {
@@ -90,6 +107,8 @@ function initMobileNavigation() {
                 navMenu.classList.remove('active');
             }
         });
+    } else {
+        console.error('Hamburger or nav menu not found!');
     }
 }
 

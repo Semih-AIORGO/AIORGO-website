@@ -899,6 +899,10 @@ p {
     background: transparent;
     border: none;
     cursor: pointer;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
   }
   
   /* Ensure hamburger bars are visible */
@@ -909,10 +913,12 @@ p {
     margin: 4px 0;
     border-radius: 2px;
     transition: all 0.3s ease;
+    display: block;
   }
 
   .nav-menu.active {
-    left: 0;
+    left: 0 !important;
+    display: flex !important;
   }
   
   .nav-item {
@@ -1140,10 +1146,10 @@ p {
     font-size: 0.9rem;
   }
   
-  /* Only change logo size on mobile, not positioning */
+  /* Increase logo size on mobile */
   .nav-logo img {
-    width: 120px;
-    height: 32px;
+    width: 180px;
+    height: 48px;
     margin-left: 0;
     margin-top: 0;
   }
