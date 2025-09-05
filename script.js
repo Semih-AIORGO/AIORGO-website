@@ -72,6 +72,8 @@ function initMobileNavigation() {
     console.log('Initializing mobile navigation...');
     console.log('Hamburger element:', hamburger);
     console.log('Nav menu element:', navMenu);
+    console.log('Nav links found:', navLinks.length);
+    console.log('Nav links:', navLinks);
 
     if (hamburger && navMenu) {
         console.log('Adding click event to hamburger menu');
@@ -93,6 +95,16 @@ function initMobileNavigation() {
             
             console.log('Hamburger active:', hamburger.classList.contains('active'));
             console.log('Nav menu active:', navMenu.classList.contains('active'));
+            
+            // Ensure menu items are visible
+            if (navMenu.classList.contains('active')) {
+                console.log('Menu opened - checking nav items visibility');
+                navLinks.forEach((link, index) => {
+                    console.log(`Nav link ${index}:`, link.textContent, link.style.display);
+                    link.style.display = 'block';
+                    link.style.opacity = '1';
+                });
+            }
         }
         
         // Add multiple event listeners for better compatibility

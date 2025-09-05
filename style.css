@@ -871,7 +871,7 @@ p {
   
   /* Only change positioning on mobile */
   .nav-logo {
-    margin-left: -20px;
+    margin-left: -40px;
     margin-top: 0;
     order: 1;
   }
@@ -884,12 +884,14 @@ p {
     background-color: rgba(0, 0, 0, 0.98);
     backdrop-filter: blur(20px);
     width: 100%;
+    height: calc(100vh - 70px);
     text-align: center;
     transition: 0.3s ease;
-    padding: 2rem 0;
+    padding: 3rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 999;
     margin-left: 0;
+    overflow-y: auto;
   }
   
   /* Ensure hamburger menu is visible and clickable in right corner */
@@ -934,12 +936,25 @@ p {
   }
   
   .nav-item {
-    margin: 1rem 0;
+    margin: 1.5rem 0;
+    list-style: none;
   }
   
   .nav-link {
-    font-size: 1.1rem;
-    padding: 0.5rem 0;
+    font-size: 1.3rem;
+    padding: 1rem 2rem;
+    color: #ffffff !important;
+    text-decoration: none;
+    display: block;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  
+  .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(10px);
   }
 
   .hamburger {
@@ -1160,9 +1175,9 @@ p {
   
   /* Increase logo size on mobile and position it more to the left */
   .nav-logo img {
-    width: 220px;
-    height: 60px;
-    margin-left: -10px;
+    width: 280px;
+    height: 75px;
+    margin-left: -20px;
     margin-top: 0;
   }
 }
