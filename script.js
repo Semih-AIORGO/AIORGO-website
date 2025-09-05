@@ -78,40 +78,37 @@ function initMobileNavigation() {
     if (hamburger && navMenu) {
         console.log('Adding click event to hamburger menu');
         
-        // Add both click and touchstart events for better mobile support
-        function toggleMenu(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Hamburger clicked/touched!');
+        // Simple and reliable toggle function
+        function toggleMenu() {
+            console.log('Hamburger clicked!');
             
-            // Add visual feedback
-            hamburger.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                hamburger.style.transform = 'scale(1)';
-            }, 150);
+            const isActive = navMenu.classList.contains('active');
             
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            
-            console.log('Hamburger active:', hamburger.classList.contains('active'));
-            console.log('Nav menu active:', navMenu.classList.contains('active'));
-            
-            // Ensure menu items are visible
-            if (navMenu.classList.contains('active')) {
-                console.log('Menu opened - checking nav items visibility');
-                navLinks.forEach((link, index) => {
-                    console.log(`Nav link ${index}:`, link.textContent, link.style.display);
-                    link.style.display = 'block';
-                    link.style.opacity = '1';
-                });
+            if (isActive) {
+                // Close menu
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                console.log('Menu closed');
+            } else {
+                // Open menu
+                hamburger.classList.add('active');
+                navMenu.classList.add('active');
+                console.log('Menu opened');
             }
         }
         
-        // Add multiple event listeners for better compatibility
-        hamburger.addEventListener('click', toggleMenu);
-        hamburger.addEventListener('touchstart', toggleMenu);
+        // Add click event listener
+        hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMenu();
+        });
+        
+        // Add touch event for mobile
         hamburger.addEventListener('touchend', function(e) {
             e.preventDefault();
+            e.stopPropagation();
+            toggleMenu();
         });
 
         // Close mobile menu when clicking on a link
@@ -131,7 +128,26 @@ function initMobileNavigation() {
         });
     } else {
         console.error('Hamburger or nav menu not found!');
+        console.log('Available elements:');
+        console.log('Hamburger:', document.querySelector('.hamburger'));
+        console.log('Nav menu:', document.querySelector('.nav-menu'));
     }
+    
+    // Add a simple test click handler as backup
+    setTimeout(() => {
+        const testHamburger = document.querySelector('.hamburger');
+        if (testHamburger) {
+            console.log('Adding backup click handler');
+            testHamburger.onclick = function() {
+                console.log('Backup handler triggered!');
+                const menu = document.querySelector('.nav-menu');
+                if (menu) {
+                    menu.classList.toggle('active');
+                    this.classList.toggle('active');
+                }
+            };
+        }
+    }, 1000);
 }
 
 // Smooth Scrolling for Navigation Links

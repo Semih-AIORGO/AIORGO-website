@@ -871,7 +871,7 @@ p {
   
   /* Only change positioning on mobile */
   .nav-logo {
-    margin-left: -40px;
+    margin-left: -60px;
     margin-top: 0;
     order: 1;
   }
@@ -899,13 +899,12 @@ p {
     display: flex !important;
     z-index: 1001;
     position: relative;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
+    padding: 10px;
+    background: transparent;
+    border: none;
     cursor: pointer;
-    min-width: 50px;
-    min-height: 50px;
+    min-width: 44px;
+    min-height: 44px;
     align-items: center;
     justify-content: center;
     order: 2;
@@ -924,9 +923,8 @@ p {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
   
-  /* Add hover effect for better visibility */
+  /* Simple hover effect without background */
   .hamburger:hover {
-    background: rgba(255, 255, 255, 0.2) !important;
     transform: scale(1.05);
   }
 
@@ -1175,9 +1173,9 @@ p {
   
   /* Increase logo size on mobile and position it more to the left */
   .nav-logo img {
-    width: 280px;
-    height: 75px;
-    margin-left: -20px;
+    width: 320px;
+    height: 85px;
+    margin-left: -30px;
     margin-top: 0;
   }
 }
