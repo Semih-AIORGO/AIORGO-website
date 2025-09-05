@@ -63,88 +63,57 @@ function updateThemeIcon() {
     window.dispatchEvent(new Event('scroll'));
 }
 
-// Mobile Navigation - Peak.com Style
+// Simple Mobile Navigation
 function initMobileNavigation() {
+    console.log('Initializing simple mobile navigation...');
+    
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const body = document.body;
-
-    console.log('Initializing Peak.com style mobile navigation...');
-    console.log('Hamburger:', hamburger);
-    console.log('Nav menu:', navMenu);
-    console.log('Nav links:', navLinks.length);
-
+    
+    console.log('Hamburger found:', !!hamburger);
+    console.log('Nav menu found:', !!navMenu);
+    
     if (hamburger && navMenu) {
-        let isMenuOpen = false;
+        console.log('Adding click event to hamburger');
         
-        function openMenu() {
-            console.log('Opening menu...');
-            isMenuOpen = true;
-            hamburger.classList.add('active');
-            navMenu.classList.add('active');
-            body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-        
-        function closeMenu() {
-            console.log('Closing menu...');
-            isMenuOpen = false;
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            body.style.overflow = ''; // Restore scrolling
-        }
-        
-        function toggleMenu() {
-            if (isMenuOpen) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        }
-        
-        // Hamburger click handler
-        hamburger.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
+        hamburger.onclick = function() {
             console.log('Hamburger clicked!');
-            toggleMenu();
-        });
+            console.log('Current nav menu classes:', navMenu.className);
+            
+            if (navMenu.classList.contains('active')) {
+                console.log('Closing menu');
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            } else {
+                console.log('Opening menu');
+                navMenu.classList.add('active');
+                hamburger.classList.add('active');
+            }
+            
+            console.log('New nav menu classes:', navMenu.className);
+        };
         
-        // Close menu when clicking on nav links
+        // Close menu when clicking nav links
+        const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
-            link.addEventListener('click', function() {
+            link.onclick = function() {
                 console.log('Nav link clicked, closing menu');
-                closeMenu();
-            });
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            };
         });
         
-        // Close menu when clicking outside
-        navMenu.addEventListener('click', function(e) {
-            if (e.target === navMenu) {
-                console.log('Clicked outside menu, closing');
-                closeMenu();
-            }
-        });
+        console.log('Mobile navigation initialized successfully');
         
-        // Close menu on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && isMenuOpen) {
-                console.log('Escape key pressed, closing menu');
-                closeMenu();
-            }
-        });
-        
-        // Prevent menu from opening on desktop
-        function checkScreenSize() {
-            if (window.innerWidth > 768) {
-                closeMenu();
-            }
-        }
-        
-        window.addEventListener('resize', checkScreenSize);
+        // Test if hamburger is visible
+        setTimeout(() => {
+            const hamburgerRect = hamburger.getBoundingClientRect();
+            console.log('Hamburger position:', hamburgerRect);
+            console.log('Hamburger visible:', hamburgerRect.width > 0 && hamburgerRect.height > 0);
+        }, 1000);
         
     } else {
-        console.error('Mobile navigation elements not found!');
+        console.error('Could not find hamburger or nav menu elements');
     }
 }
 
