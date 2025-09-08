@@ -502,10 +502,10 @@ body::before {
 
 .letter.space {
     width: 20px;
-    background: none;
-    -webkit-text-fill-color: transparent;
-    text-shadow: none;
-    filter: none;
+    display: inline-block;
+    opacity: 0;
+    animation: letterAppear 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    animation-delay: calc(var(--delay) * 0.1s);
 }
 
 .typing-cursor {
