@@ -69,9 +69,17 @@ function initMobileNavigation() {
     
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const navItems = document.querySelectorAll('.nav-item');
+    const navLinks = document.querySelectorAll('.nav-link');
     
     console.log('Hamburger found:', !!hamburger);
     console.log('Nav menu found:', !!navMenu);
+    console.log('Nav items found:', navItems.length);
+    console.log('Nav links found:', navLinks.length);
+    
+    // Debug: Check if we're on mobile
+    console.log('Window width:', window.innerWidth);
+    console.log('Is mobile:', window.innerWidth <= 768);
     
     if (hamburger && navMenu) {
         console.log('Adding click event to hamburger');
@@ -83,13 +91,25 @@ function initMobileNavigation() {
             console.log('Hamburger clicked!');
             console.log('Menu classes before:', navMenu.className);
             console.log('Menu display before:', window.getComputedStyle(navMenu).display);
+            console.log('Menu visibility before:', window.getComputedStyle(navMenu).visibility);
+            console.log('Menu opacity before:', window.getComputedStyle(navMenu).opacity);
             
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
             
             console.log('Menu classes after:', navMenu.className);
             console.log('Menu display after:', window.getComputedStyle(navMenu).display);
+            console.log('Menu visibility after:', window.getComputedStyle(navMenu).visibility);
+            console.log('Menu opacity after:', window.getComputedStyle(navMenu).opacity);
             console.log('Menu items count:', navMenu.querySelectorAll('.nav-item').length);
+            
+            // Force show menu for debugging
+            if (navMenu.classList.contains('active')) {
+                navMenu.style.display = 'block';
+                navMenu.style.visibility = 'visible';
+                navMenu.style.opacity = '1';
+                console.log('FORCED MENU TO SHOW');
+            }
         });
         
         // Close menu when clicking nav links
@@ -657,5 +677,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+// Test function for debugging hamburger menu
+window.testHamburgerMenu = function() {
+    console.log('=== HAMBURGER MENU TEST ===');
+    
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    console.log('Hamburger element:', hamburger);
+    console.log('Nav menu element:', navMenu);
+    console.log('Nav items count:', navItems.length);
+    console.log('Window width:', window.innerWidth);
+    console.log('Is mobile:', window.innerWidth <= 768);
+    
+    if (hamburger) {
+        console.log('Hamburger display:', window.getComputedStyle(hamburger).display);
+        console.log('Hamburger visibility:', window.getComputedStyle(hamburger).visibility);
+    }
+    
+    if (navMenu) {
+        console.log('Nav menu display:', window.getComputedStyle(navMenu).display);
+        console.log('Nav menu position:', window.getComputedStyle(navMenu).position);
+        console.log('Nav menu classes:', navMenu.className);
+    }
+    
+    // Try to trigger the menu
+    if (hamburger && navMenu) {
+        console.log('Triggering hamburger click...');
+        hamburger.click();
+        
+        setTimeout(() => {
+            console.log('After click - Nav menu display:', window.getComputedStyle(navMenu).display);
+            console.log('After click - Nav menu classes:', navMenu.className);
+        }, 100);
+    }
+    
+    console.log('=== END TEST ===');
+};
+
 console.log("AIORGO website JavaScript initialized successfully!");
+console.log("Run testHamburgerMenu() in console to debug the hamburger menu");
 
