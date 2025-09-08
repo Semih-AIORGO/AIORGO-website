@@ -504,8 +504,11 @@ body::before {
     width: 20px;
     display: inline-block;
     opacity: 0;
-    animation: letterAppear 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    animation: spaceAppear 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
     animation-delay: calc(var(--delay) * 0.1s);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin: 0 2px;
 }
 
 .typing-cursor {
@@ -547,6 +550,17 @@ body::before {
     100% {
         opacity: 1;
         transform: translateY(0) rotateX(0deg) scale(1);
+    }
+}
+
+@keyframes spaceAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
