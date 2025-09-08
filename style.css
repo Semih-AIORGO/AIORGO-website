@@ -7,26 +7,63 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
-    color: #000000;
-    background-image: url('assets/banner.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    line-height: 1.6;
+    color: #ffffff;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(78, 205, 196, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(69, 183, 209, 0.08) 0%, transparent 50%),
+        linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
     background-attachment: fixed;
-  overflow-x: hidden;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.02) 2px,
+            rgba(255, 255, 255, 0.02) 4px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.02) 2px,
+            rgba(255, 255, 255, 0.02) 4px
+        );
+    animation: globalGridMove 20s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes globalGridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(20px, 20px); }
 }
 
 /* Navigation */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+    backdrop-filter: blur(20px);
+    z-index: 1000;
     padding: 20px 0;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 2px solid rgba(255, 107, 107, 0.3);
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(255, 107, 107, 0.2);
 }
 
 .nav-container {
@@ -39,11 +76,30 @@ body {
 }
 
 .nav-logo a {
-    font-size: 18px;
-    font-weight: 500;
-    color: #000000;
-  text-decoration: none;
-    letter-spacing: 0.5px;
+    font-size: 28px;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: logoGlow 3s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+}
+
+@keyframes logoGlow {
+    0%, 100% { 
+        background-position: 0% 50%;
+        text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+    }
+    50% { 
+        background-position: 100% 50%;
+        text-shadow: 0 0 30px rgba(78, 205, 196, 0.8);
+    }
 }
 
 .nav-menu {
@@ -331,16 +387,38 @@ body {
 
 /* Hero Section */
 .hero {
-  padding: 0;
-    background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-    color: #000000;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
+    padding: 0;
+    background: 
+        radial-gradient(circle at 30% 30%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(78, 205, 196, 0.1) 0%, transparent 50%);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%),
+        linear-gradient(-45deg, transparent 30%, rgba(255, 255, 255, 0.03) 50%, transparent 70%);
+    animation: heroShimmer 4s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes heroShimmer {
+    0%, 100% { transform: translateX(-100%) translateY(-100%); }
+    50% { transform: translateX(100%) translateY(100%); }
 }
 
 .hero-container {
@@ -355,14 +433,41 @@ body {
   margin: 0 auto;
   }
   
-  .hero-title {
+.hero-title {
     font-size: 80px;
-    font-weight: 200;
+    font-weight: 800;
     margin-bottom: 20px;
     line-height: 1.1;
-    color: #000000;
-    letter-spacing: -2px;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    color: #ffffff;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #ff6b6b);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleGlow 4s ease-in-out infinite;
+    text-shadow: 
+        0 0 20px rgba(255, 107, 107, 0.6),
+        0 0 40px rgba(78, 205, 196, 0.4),
+        0 0 60px rgba(69, 183, 209, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes titleGlow {
+    0%, 100% { 
+        background-position: 0% 50%;
+        text-shadow: 
+            0 0 20px rgba(255, 107, 107, 0.6),
+            0 0 40px rgba(78, 205, 196, 0.4);
+    }
+    50% { 
+        background-position: 100% 50%;
+        text-shadow: 
+            0 0 30px rgba(78, 205, 196, 0.8),
+            0 0 50px rgba(69, 183, 209, 0.6);
+    }
 }
 
 /* Mobile Responsive */
