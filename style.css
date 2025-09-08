@@ -475,10 +475,10 @@ body::before {
     position: relative;
     z-index: 1;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    white-space: nowrap;
+    white-space: normal;
 }
 
 .letter {
