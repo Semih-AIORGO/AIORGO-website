@@ -956,14 +956,19 @@ p {
     padding: 10px 0;
     min-width: 200px;
     display: none;
+    opacity: 0;
+    visibility: hidden;
     z-index: 1000;
     list-style: none;
     margin: 0;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
   }
   
   .nav-menu.active {
     display: block !important;
+    opacity: 1;
+    visibility: visible;
   }
   
   .nav-item {
@@ -977,17 +982,26 @@ p {
     color: #ffffff !important;
     text-decoration: none;
     font-size: 1.1rem;
+    font-weight: 500;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
+    text-align: left;
+    width: 100%;
   }
   
   .nav-link:hover {
     background: rgba(255, 255, 255, 0.1);
     color: #ffffff !important;
+    padding-left: 25px;
   }
   
   .nav-link:last-child {
     border-bottom: none;
+  }
+  
+  .nav-link.active {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff !important;
   }
 
 

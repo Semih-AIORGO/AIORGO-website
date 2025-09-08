@@ -80,19 +80,31 @@ function initMobileNavigation() {
         hamburger.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
+            console.log('Hamburger clicked!');
             console.log('Menu classes before:', navMenu.className);
+            console.log('Menu display before:', window.getComputedStyle(navMenu).display);
+            
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
+            
             console.log('Menu classes after:', navMenu.className);
+            console.log('Menu display after:', window.getComputedStyle(navMenu).display);
+            console.log('Menu items count:', navMenu.querySelectorAll('.nav-item').length);
         });
         
         // Close menu when clicking nav links
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
-            link.onclick = function() {
+            link.addEventListener('click', function(e) {
+                console.log('Navigation link clicked:', this.textContent, 'href:', this.href);
+                
+                // Close the mobile menu
                 navMenu.classList.remove('active');
                 hamburger.classList.remove('active');
-            };
+                
+                // Allow normal navigation to proceed
+                // The browser will handle the page navigation
+            });
         });
         
         // Close menu when clicking outside
