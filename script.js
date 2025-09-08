@@ -84,7 +84,7 @@ function initMobileNavigation() {
     if (hamburger && navMenu) {
         console.log('Adding click event to hamburger');
         
-        // Click event to toggle menu
+        // Click event to toggle menu - UNIVERSAL APPROACH
         hamburger.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -92,43 +92,22 @@ function initMobileNavigation() {
             console.log('Menu classes before:', navMenu.className);
             console.log('Menu display before:', window.getComputedStyle(navMenu).display);
             
-            // FORCE SHOW MENU - NO MATTER WHAT
-            navMenu.style.display = 'block';
-            navMenu.style.position = 'absolute';
-            navMenu.style.top = '100%';
-            navMenu.style.right = '0';
-            navMenu.style.background = '#000000';
-            navMenu.style.border = '2px solid white';
-            navMenu.style.padding = '20px';
-            navMenu.style.zIndex = '9999';
-            navMenu.style.minWidth = '200px';
-            navMenu.style.borderRadius = '5px';
+            // Simple toggle approach
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
             
-            // FORCE SHOW MENU ITEMS
+            console.log('Menu classes after:', navMenu.className);
+            console.log('Menu display after:', window.getComputedStyle(navMenu).display);
+            
+            // Log menu items
             const navItems = navMenu.querySelectorAll('.nav-item');
             const navLinks = navMenu.querySelectorAll('.nav-link');
-            
-            navItems.forEach((item, index) => {
-                item.style.display = 'block';
-                item.style.padding = '10px';
-                item.style.borderBottom = '1px solid white';
-                console.log(`Menu item ${index + 1}:`, item.textContent.trim());
-            });
-            
-            navLinks.forEach((link, index) => {
-                link.style.display = 'block';
-                link.style.color = 'white';
-                link.style.textDecoration = 'none';
-                link.style.padding = '10px';
-                console.log(`Menu link ${index + 1}:`, link.textContent.trim(), link.href);
-            });
-            
-            console.log('FORCED MENU TO SHOW');
-            console.log('Menu display after:', window.getComputedStyle(navMenu).display);
-            console.log('Menu position:', window.getComputedStyle(navMenu).position);
-            console.log('Menu background:', window.getComputedStyle(navMenu).background);
             console.log('Menu items count:', navItems.length);
             console.log('Menu links count:', navLinks.length);
+            
+            navLinks.forEach((link, index) => {
+                console.log(`Menu link ${index + 1}:`, link.textContent.trim(), link.href);
+            });
         });
         
         // Close menu when clicking nav links
@@ -137,10 +116,9 @@ function initMobileNavigation() {
             link.addEventListener('click', function(e) {
                 console.log('Navigation link clicked:', this.textContent, 'href:', this.href);
                 
-                // Close the mobile menu
-                navMenu.classList.remove('mobile-active');
+                // Close the menu
+                navMenu.classList.remove('active');
                 hamburger.classList.remove('active');
-                navMenu.style.display = 'none';
                 
                 // Allow normal navigation to proceed
                 // The browser will handle the page navigation
@@ -150,9 +128,8 @@ function initMobileNavigation() {
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
             if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.remove('mobile-active');
+                navMenu.classList.remove('active');
                 hamburger.classList.remove('active');
-                navMenu.style.display = 'none';
             }
         });
         
