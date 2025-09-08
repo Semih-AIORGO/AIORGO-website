@@ -1,0 +1,16 @@
+{
+  "name": "aiorgo-website",
+  "version": "1.0.0",
+  "description": "AIORGO Website",
+  "main": "index.html",
+  "scripts": {
+    "deploy": "wrangler pages deploy .",
+    "dev": "wrangler pages dev ."
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  },
+  "keywords": ["website", "static", "cloudflare"],
+  "author": "AIORGO",
+  "license": "MIT"
+}

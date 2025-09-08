@@ -1,0 +1,8 @@
+name = "aiorgo-website"
+compatibility_date = "2024-01-01"
+
+[env.production]
+name = "aiorgo-website"
+
+# For static site deployment
+pages_build_output_dir = "."
