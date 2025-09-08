@@ -6,7 +6,8 @@
   "scripts": {
     "deploy": "wrangler pages deploy .",
     "dev": "wrangler pages dev .",
-    "build": "echo 'No build step required for static site'"
+    "build": "echo 'No build step required for static site'",
+    "pages:deploy": "wrangler pages deploy ."
   },
   "devDependencies": {
     "wrangler": "^3.0.0"

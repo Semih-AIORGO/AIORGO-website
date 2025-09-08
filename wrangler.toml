@@ -3,3 +3,7 @@ compatibility_date = "2024-01-01"
 
 # For Cloudflare Pages static site deployment
 pages_build_output_dir = "."
+
+# Assets configuration for static site
+[assets]
+directory = "."
