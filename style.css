@@ -43,14 +43,31 @@ body {
 }
 
 .nav-menu {
-    display: flex;
+    display: none;
     list-style: none;
     gap: 30px;
     margin: 0;
     padding: 0;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+    padding: 20px 0;
+    min-width: 200px;
+    flex-direction: column;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-menu.active {
+    display: flex;
 }
 
 .nav-link {
+    display: block;
+    padding: 15px 20px;
     text-decoration: none;
     color: #000000;
     font-weight: 400;
@@ -58,6 +75,11 @@ body {
     transition: all 0.3s ease;
     text-transform: lowercase;
     letter-spacing: 0.5px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.nav-link:last-child {
+    border-bottom: none;
 }
 
 .nav-link:hover {
@@ -66,7 +88,7 @@ body {
 
 /* Hamburger Menu */
 .hamburger {
-    display: none;
+    display: flex;
     flex-direction: column;
     cursor: pointer;
     padding: 8px;
