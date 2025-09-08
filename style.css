@@ -925,6 +925,20 @@ p {
     background: #ffffff;
     margin: 2px 0;
     transition: 0.3s;
+    border-radius: 1px;
+  }
+  
+  /* Hamburger animation when active */
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
   }
   
   /* Mobile menu - simple dropdown */
@@ -945,6 +959,7 @@ p {
     z-index: 1000;
     list-style: none;
     margin: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   }
   
   .nav-menu.active {
@@ -959,14 +974,20 @@ p {
   .nav-link {
     display: block;
     padding: 15px 20px;
-    color: #ffffff;
+    color: #ffffff !important;
     text-decoration: none;
     font-size: 1.1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
   }
   
   .nav-link:hover {
     background: rgba(255, 255, 255, 0.1);
+    color: #ffffff !important;
+  }
+  
+  .nav-link:last-child {
+    border-bottom: none;
   }
 
 

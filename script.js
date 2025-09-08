@@ -77,9 +77,12 @@ function initMobileNavigation() {
         console.log('Adding click event to hamburger');
         
         // Click event to toggle menu
-        hamburger.addEventListener('click', function() {
+        hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             console.log('Menu classes before:', navMenu.className);
             navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
             console.log('Menu classes after:', navMenu.className);
         });
         
@@ -88,7 +91,16 @@ function initMobileNavigation() {
         navLinks.forEach(link => {
             link.onclick = function() {
                 navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
             };
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
         });
         
         console.log('Mobile navigation initialized successfully');
