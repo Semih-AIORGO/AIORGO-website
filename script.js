@@ -91,13 +91,19 @@ function initMobileNavigation() {
             console.log('=== HAMBURGER CLICKED ===');
             console.log('Menu classes before:', navMenu.className);
             console.log('Menu display before:', window.getComputedStyle(navMenu).display);
+            console.log('Menu z-index before:', window.getComputedStyle(navMenu).zIndex);
             
             // Simple toggle approach
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
             
+            // FORCE HIGH Z-INDEX
+            navMenu.style.zIndex = '9999';
+            hamburger.style.zIndex = '10000';
+            
             console.log('Menu classes after:', navMenu.className);
             console.log('Menu display after:', window.getComputedStyle(navMenu).display);
+            console.log('Menu z-index after:', window.getComputedStyle(navMenu).zIndex);
             
             // Log menu items
             const navItems = navMenu.querySelectorAll('.nav-item');
@@ -108,6 +114,21 @@ function initMobileNavigation() {
             navLinks.forEach((link, index) => {
                 console.log(`Menu link ${index + 1}:`, link.textContent.trim(), link.href);
             });
+            
+            // FORCE SHOW MENU WITH INLINE STYLES
+            if (navMenu.classList.contains('active')) {
+                navMenu.style.display = 'block';
+                navMenu.style.position = 'absolute';
+                navMenu.style.top = '100%';
+                navMenu.style.right = '0';
+                navMenu.style.background = '#000000';
+                navMenu.style.border = '2px solid white';
+                navMenu.style.padding = '20px';
+                navMenu.style.zIndex = '9999';
+                navMenu.style.minWidth = '200px';
+                navMenu.style.borderRadius = '5px';
+                console.log('FORCED MENU TO SHOW WITH INLINE STYLES');
+            }
         });
         
         // Close menu when clicking nav links
