@@ -52,20 +52,19 @@ body {
     gap: 0;
     margin: 0;
     padding: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(20px);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 280px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transform: translateY(-100%);
+    z-index: 1000;
+    transform: translateY(-10px);
     opacity: 0;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease;
     overflow: hidden;
 }
 
@@ -75,87 +74,29 @@ body {
     opacity: 1;
 }
 
-.menu-close-btn {
-    position: absolute;
-    top: 40px;
-    right: 40px;
-    width: 50px;
-    height: 50px;
-    background: transparent;
-    border: 2px solid #333333;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 10000;
-}
-
-.menu-close-btn:hover {
-    background: #333333;
-    transform: rotate(90deg);
-}
-
-.menu-close-btn::before,
-.menu-close-btn::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 2px;
-    background: #333333;
-    border-radius: 1px;
-}
-
-.menu-close-btn:hover::before,
-.menu-close-btn:hover::after {
-    background: #ffffff;
-}
-
-.menu-close-btn::before {
-    transform: rotate(45deg);
-}
-
-.menu-close-btn::after {
-    transform: rotate(-45deg);
-}
 
 .nav-link {
     display: block;
-    padding: 20px 40px;
+    padding: 16px 24px;
     text-decoration: none;
     color: #333333;
     font-weight: 500;
-    font-size: 32px;
+    font-size: 16px;
     transition: all 0.3s ease;
     text-transform: lowercase;
-    letter-spacing: 2px;
+    letter-spacing: 0.5px;
     position: relative;
-    margin: 15px 0;
-    text-align: center;
-    opacity: 0.8;
+    border-bottom: 1px solid #f0f0f0;
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: #333333;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
+.nav-link:last-child {
+    border-bottom: none;
 }
 
 .nav-link:hover {
     color: #000000;
-    opacity: 1;
-    transform: translateY(-2px);
-}
-
-.nav-link:hover::after {
-    width: 60%;
+    background: #f8f8f8;
+    padding-left: 32px;
 }
 
 /* Simple Hamburger Menu */
@@ -236,23 +177,13 @@ body {
         display: flex;
     }
     
+    .nav-menu {
+        width: 250px;
+    }
+    
     .nav-link {
-        font-size: 24px;
-        padding: 16px 32px;
-        letter-spacing: 1px;
-        margin: 12px 0;
-    }
-    
-    .menu-close-btn {
-        top: 30px;
-        right: 30px;
-        width: 45px;
-        height: 45px;
-    }
-    
-    .menu-close-btn::before,
-    .menu-close-btn::after {
-        width: 18px;
+        font-size: 15px;
+        padding: 14px 20px;
     }
     
     .hero-title {
@@ -261,23 +192,13 @@ body {
 }
 
 @media (max-width: 480px) {
+    .nav-menu {
+        width: 220px;
+    }
+    
     .nav-link {
-        font-size: 20px;
-        padding: 14px 28px;
-        letter-spacing: 1px;
-        margin: 10px 0;
-    }
-    
-    .menu-close-btn {
-        top: 25px;
-        right: 25px;
-        width: 40px;
-        height: 40px;
-    }
-    
-    .menu-close-btn::before,
-    .menu-close-btn::after {
-        width: 16px;
+        font-size: 14px;
+        padding: 12px 18px;
     }
     
     .hero-title {
