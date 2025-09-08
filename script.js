@@ -88,26 +88,47 @@ function initMobileNavigation() {
         hamburger.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            console.log('Hamburger clicked!');
+            console.log('=== HAMBURGER CLICKED ===');
             console.log('Menu classes before:', navMenu.className);
             console.log('Menu display before:', window.getComputedStyle(navMenu).display);
             
-            // Toggle mobile menu
-            navMenu.classList.toggle('mobile-active');
-            hamburger.classList.toggle('active');
+            // FORCE SHOW MENU - NO MATTER WHAT
+            navMenu.style.display = 'block';
+            navMenu.style.position = 'absolute';
+            navMenu.style.top = '100%';
+            navMenu.style.right = '0';
+            navMenu.style.background = '#000000';
+            navMenu.style.border = '2px solid white';
+            navMenu.style.padding = '20px';
+            navMenu.style.zIndex = '9999';
+            navMenu.style.minWidth = '200px';
+            navMenu.style.borderRadius = '5px';
             
-            console.log('Menu classes after:', navMenu.className);
+            // FORCE SHOW MENU ITEMS
+            const navItems = navMenu.querySelectorAll('.nav-item');
+            const navLinks = navMenu.querySelectorAll('.nav-link');
+            
+            navItems.forEach((item, index) => {
+                item.style.display = 'block';
+                item.style.padding = '10px';
+                item.style.borderBottom = '1px solid white';
+                console.log(`Menu item ${index + 1}:`, item.textContent.trim());
+            });
+            
+            navLinks.forEach((link, index) => {
+                link.style.display = 'block';
+                link.style.color = 'white';
+                link.style.textDecoration = 'none';
+                link.style.padding = '10px';
+                console.log(`Menu link ${index + 1}:`, link.textContent.trim(), link.href);
+            });
+            
+            console.log('FORCED MENU TO SHOW');
             console.log('Menu display after:', window.getComputedStyle(navMenu).display);
-            console.log('Menu items count:', navMenu.querySelectorAll('.nav-item').length);
-            
-            // Force show menu if needed
-            if (navMenu.classList.contains('mobile-active')) {
-                navMenu.style.display = 'block';
-                console.log('MOBILE MENU ACTIVATED');
-            } else {
-                navMenu.style.display = 'none';
-                console.log('MOBILE MENU DEACTIVATED');
-            }
+            console.log('Menu position:', window.getComputedStyle(navMenu).position);
+            console.log('Menu background:', window.getComputedStyle(navMenu).background);
+            console.log('Menu items count:', navItems.length);
+            console.log('Menu links count:', navLinks.length);
         });
         
         // Close menu when clicking nav links
