@@ -91,24 +91,22 @@ function initMobileNavigation() {
             console.log('Hamburger clicked!');
             console.log('Menu classes before:', navMenu.className);
             console.log('Menu display before:', window.getComputedStyle(navMenu).display);
-            console.log('Menu visibility before:', window.getComputedStyle(navMenu).visibility);
-            console.log('Menu opacity before:', window.getComputedStyle(navMenu).opacity);
             
-            navMenu.classList.toggle('active');
+            // Toggle mobile menu
+            navMenu.classList.toggle('mobile-active');
             hamburger.classList.toggle('active');
             
             console.log('Menu classes after:', navMenu.className);
             console.log('Menu display after:', window.getComputedStyle(navMenu).display);
-            console.log('Menu visibility after:', window.getComputedStyle(navMenu).visibility);
-            console.log('Menu opacity after:', window.getComputedStyle(navMenu).opacity);
             console.log('Menu items count:', navMenu.querySelectorAll('.nav-item').length);
             
-            // Force show menu for debugging
-            if (navMenu.classList.contains('active')) {
+            // Force show menu if needed
+            if (navMenu.classList.contains('mobile-active')) {
                 navMenu.style.display = 'block';
-                navMenu.style.visibility = 'visible';
-                navMenu.style.opacity = '1';
-                console.log('FORCED MENU TO SHOW');
+                console.log('MOBILE MENU ACTIVATED');
+            } else {
+                navMenu.style.display = 'none';
+                console.log('MOBILE MENU DEACTIVATED');
             }
         });
         
@@ -119,8 +117,9 @@ function initMobileNavigation() {
                 console.log('Navigation link clicked:', this.textContent, 'href:', this.href);
                 
                 // Close the mobile menu
-                navMenu.classList.remove('active');
+                navMenu.classList.remove('mobile-active');
                 hamburger.classList.remove('active');
+                navMenu.style.display = 'none';
                 
                 // Allow normal navigation to proceed
                 // The browser will handle the page navigation
@@ -130,8 +129,9 @@ function initMobileNavigation() {
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
             if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.remove('active');
+                navMenu.classList.remove('mobile-active');
                 hamburger.classList.remove('active');
+                navMenu.style.display = 'none';
             }
         });
         
@@ -710,12 +710,44 @@ window.testHamburgerMenu = function() {
         setTimeout(() => {
             console.log('After click - Nav menu display:', window.getComputedStyle(navMenu).display);
             console.log('After click - Nav menu classes:', navMenu.className);
+            console.log('Has mobile-active class:', navMenu.classList.contains('mobile-active'));
         }, 100);
     }
     
     console.log('=== END TEST ===');
 };
 
+// Force show menu function for testing
+window.forceShowMenu = function() {
+    const navMenu = document.querySelector('.nav-menu');
+    const hamburger = document.querySelector('.hamburger');
+    
+    if (navMenu && hamburger) {
+        navMenu.classList.add('mobile-active');
+        hamburger.classList.add('active');
+        navMenu.style.display = 'block';
+        console.log('Menu forced to show!');
+        console.log('Menu classes:', navMenu.className);
+        console.log('Menu display:', window.getComputedStyle(navMenu).display);
+    }
+};
+
+// Force hide menu function for testing
+window.forceHideMenu = function() {
+    const navMenu = document.querySelector('.nav-menu');
+    const hamburger = document.querySelector('.hamburger');
+    
+    if (navMenu && hamburger) {
+        navMenu.classList.remove('mobile-active');
+        hamburger.classList.remove('active');
+        navMenu.style.display = 'none';
+        console.log('Menu forced to hide!');
+    }
+};
+
 console.log("AIORGO website JavaScript initialized successfully!");
-console.log("Run testHamburgerMenu() in console to debug the hamburger menu");
+console.log("Debug functions available:");
+console.log("- testHamburgerMenu() - Test the hamburger menu");
+console.log("- forceShowMenu() - Force show the menu");
+console.log("- forceHideMenu() - Force hide the menu");
 
