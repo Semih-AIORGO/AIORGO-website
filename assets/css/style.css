@@ -26,6 +26,10 @@ body {
     font-weight: 600;
 }
 
+.brand:hover {
+    opacity: 0.8;
+}
+
 .nav-links {
     margin-top: 15px;
     display: flex;
@@ -53,7 +57,7 @@ body {
 
 .hero h2 {
     font-size: 34px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .hero p {
@@ -61,12 +65,18 @@ body {
     font-size: 16px;
 }
 
-/* CONTENT */
+/* HOMEPAGE */
 
 .content-section {
     max-width: 900px;
     margin: 40px auto 80px;
     padding: 0 20px;
+}
+
+.section-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #38bdf8;
 }
 
 .game-card {
@@ -98,12 +108,6 @@ body {
     font-weight: 500;
 }
 
-.section-title {
-    font-size: 22px;
-    margin-bottom: 20px;
-    color: #38bdf8;
-}
-
 /* GAME PAGE */
 
 .game-hero img {
@@ -117,6 +121,71 @@ body {
     max-width: 700px;
     margin: auto;
     line-height: 1.7;
+}
+
+/* APP STORE BUTTON */
+
+.store-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.appstore-badge {
+    display: inline-block;
+    background: black;
+    color: white;
+    padding: 14px 26px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.25s ease;
+    letter-spacing: 0.5px;
+}
+
+.appstore-badge:hover {
+    background: #1f2937;
+    transform: translateY(-3px);
+}
+
+/* LEGAL PAGES */
+
+.content-section h2 {
+    margin-top: 35px;
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: #38bdf8;
+}
+
+.content-section h3 {
+    margin-top: 25px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #60a5fa;
+}
+
+.content-section p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.content-section ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.content-section li {
+    margin-bottom: 8px;
+}
+
+.content-section a {
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+.content-section a:hover {
+    text-decoration: underline;
 }
 
 footer {
