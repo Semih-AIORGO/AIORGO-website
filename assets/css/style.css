@@ -54,11 +54,11 @@ body {
 
 .hero {
     text-align: center;
-    padding: 90px 20px 60px;
+    padding: 80px 20px 50px;
 }
 
 .hero h1 {
-    font-size: 34px;
+    font-size: 32px;
     font-weight: 600;
     margin-bottom: 15px;
 }
@@ -73,7 +73,7 @@ body {
 
 .section {
     max-width: 1000px;
-    margin: 90px auto;
+    margin: 80px auto;
     padding: 0 20px;
 }
 
@@ -127,27 +127,33 @@ body {
     margin-bottom: 8px;
 }
 
-/* ================= BANNERS (FIXED + SMALLER + FULL IMAGE) ================= */
+/* ================= BANNERS (SIDE BY SIDE SMALL) ================= */
 
 .banner-gallery {
     margin-top: 70px;
-    max-width: 850px;      /* Controls size elegantly */
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
     display: grid;
-    gap: 35px;
+    gap: 25px;
 }
 
 .banner-gallery img {
     width: 100%;
-    height: auto;          /* Full image visible */
-    border-radius: 16px;
+    height: auto;
+    border-radius: 14px;
     display: block;
     transition: 0.3s ease;
 }
 
 .banner-gallery img:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
+}
+
+@media (min-width: 768px) {
+    .banner-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* ================= STORE ================= */
@@ -212,25 +218,10 @@ footer {
 
 /* ================= MOBILE ================= */
 
-@media (min-width: 768px) {
-
-    .feature-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .game-card {
-        gap: 40px;
-    }
-}
-
 @media (max-width: 600px) {
 
-    .hero {
-        padding: 70px 20px 40px;
-    }
-
     .hero h1 {
-        font-size: 26px;
+        font-size: 24px;
     }
 
     .game-card {
